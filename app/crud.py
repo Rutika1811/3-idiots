@@ -48,3 +48,10 @@ def create_memory(db: Session, memory: schemas.MemoryCreate):
     db.refresh(new_memory)
 
     return new_memory
+
+def get_memories(db: Session):
+    return db.query(models.Memory).all()
+
+def get_memories(db: Session):
+    memories = db.query(models.Memory).all()
+    return memories

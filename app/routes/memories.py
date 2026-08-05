@@ -18,3 +18,13 @@ def create_memory(
     db: Session = Depends(get_db)
 ):
     return crud.create_memory(db, memory)
+
+@router.get("/", response_model=list[schemas.MemoryResponse])
+def get_all_memories(db: Session = Depends(get_db)):
+    return crud.get_memories(db)
+
+@router.get("/", response_model=list[schemas.MemoryResponse])
+def get_all_memories(
+    db: Session = Depends(get_db)
+):
+    return crud.get_memories(db)
