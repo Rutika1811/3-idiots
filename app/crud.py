@@ -30,3 +30,21 @@ def authenticate_friend(db: Session, login_data: schemas.FriendLogin):
         return None
 
     return friend
+
+def create_memory(db: Session, memory: schemas.MemoryCreate):
+
+    new_memory = models.Memory(
+        title=memory.title,
+        story=memory.story,
+        place=memory.place,
+        date=memory.date,
+        mood=memory.mood,
+        emoji=memory.emoji,
+        created_by=memory.created_by
+    )
+
+    db.add(new_memory)
+    db.commit()
+    db.refresh(new_memory)
+
+    return new_memory

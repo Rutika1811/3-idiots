@@ -13,3 +13,27 @@ class Friend(Base):
     emoji = Column(String, nullable=True)
     profile_photo = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+from sqlalchemy import Text, Date
+
+
+class Memory(Base):
+    __tablename__ = "memories"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    title = Column(String, nullable=False)
+
+    story = Column(Text, nullable=False)
+
+    place = Column(String)
+
+    date = Column(Date)
+
+    mood = Column(String)
+
+    emoji = Column(String)
+
+    created_by = Column(String)
+
+    created_at = Column(DateTime, default=datetime.utcnow)

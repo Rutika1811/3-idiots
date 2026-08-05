@@ -25,3 +25,22 @@ class FriendLogin(BaseModel):
 class LoginResponse(BaseModel):
     message: str
     friend: FriendResponse
+
+from datetime import date
+
+
+class MemoryCreate(BaseModel):
+    title: str
+    story: str
+    place: str
+    date: date
+    mood: str
+    emoji: str
+    created_by: str
+
+
+class MemoryResponse(MemoryCreate):
+    id: int
+
+    class Config:
+        from_attributes = True
